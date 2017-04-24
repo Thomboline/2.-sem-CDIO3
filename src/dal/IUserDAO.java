@@ -1,6 +1,7 @@
 package dal;
 import java.util.List;
-import classes.dto.IUserDTO;
+import dto.IUserDTO;
+
 
 public interface IUserDAO 
 {

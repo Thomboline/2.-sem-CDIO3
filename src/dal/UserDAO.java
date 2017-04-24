@@ -10,8 +10,10 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import classes.dto.IUserDTO;
-import classes.dto.UserDTO;
+
+import dto.IUserDTO;
+import dto.UserDTO;
+
 import java.security.SecureRandom;
 
 public class UserDAO implements IUserDAO
