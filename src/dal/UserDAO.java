@@ -20,7 +20,6 @@ public class UserDAO implements IUserDAO
 {
 	private java.sql.Connection con = null;
 	private PreparedStatement pst = null;
-	private PreparedStatement pst2 = null;
 	private ResultSet rs = null;
 	private String driver = "com.mysql.jdbc.Driver";
 	private String url = "jdbc:mysql://localhost:3306/cdio1";
@@ -97,7 +96,7 @@ public class UserDAO implements IUserDAO
 		}
 	}
 
-	public void createUser(IUserDTO user) throws DALException 
+	public IUserDTO createUser(IUserDTO user) throws DALException 
 	{
 		try 
 		{	
@@ -140,6 +139,7 @@ public class UserDAO implements IUserDAO
 			throw new DALException(DALException.wrongData);
 			}
 		}
+		return user;
 	}
 		
 //--------EKSTRA KODE TIL DATABASE BRUGEROPRETTELSE---------------
