@@ -102,6 +102,7 @@ public class UserDAO implements IUserDAO
 		{	
 			ArrayList<IUserDTO> UserList = new ArrayList<>();
 			UserList.add(user);
+			
 			Class.forName(driver);
 			String Password = PasswordGenerator();
 			
