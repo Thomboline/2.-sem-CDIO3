@@ -46,15 +46,15 @@ button:hover {
     opacity: 0.8;
 }
 
-#home_menu_btn {
+#homebtn {
 	float: left;
 }
 
-#createuser_menu_btn {
+#createuserbtn {
 	margin-left: 4px;
 }
 
-#login_menu_btn {
+#loginbtn {
 	float: right;
 	margin-right: 3%;
 }
