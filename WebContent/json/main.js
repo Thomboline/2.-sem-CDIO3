@@ -1,4 +1,4 @@
-var rootURL = "http://localhost:8080/CDIO3/cdio3-menu.html"; 
+var rootURL = "http://localhost:8080/2.-sem-CDIO3"; 
 
 //findAll();
  
@@ -27,7 +27,7 @@ $(document).ready(function() {
 });
 
 function search(searchKey) {
-	if (searchKey == '') 
+	if (searchKey== '') 
 		findAll();
 	else
 		findByName(searchKey);
@@ -100,10 +100,12 @@ function createUser() {
 }
 
 function formToJSON() {
-	var userId = $('#userId').val();
+	var userId = $('#userid').val();
+	console.log("Pre stringify")
 	return JSON.stringify({
-		"id": userId == "" ? null : userId,
+//		"id": userId == "" ? null : userId,
+		"id" : $('#userid').val(),
 		"username" : $('#username').val(),
-		"initialer": $('#initialer').val(),
+		"firstname" : $('#firstname')
 	});
 }

@@ -51,7 +51,7 @@ public class MySQL_Jersey
 	public IUserDTO create(IUserDTO user) throws DALException 
 	{
 
-		System.out.println("creating wine");
+		System.out.println("creating user");
 
 		return dao.createUser(user);
 
