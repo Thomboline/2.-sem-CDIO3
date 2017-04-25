@@ -1,7 +1,7 @@
 var rootURL = "http://localhost:8080/CDIO3/cdio3-menu.html"; 
 
 //findAll();
-
+ 
 $(document).ready(function() {
 	
 	$('#create_user').submit(function(event) {
