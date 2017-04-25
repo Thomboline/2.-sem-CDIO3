@@ -21,12 +21,25 @@ public class UserDAO implements IUserDAO
 	private String url = "jdbc:mysql://localhost:3306/cdio1";
 	private String user = "root";
 	private String password = "root";
+	private ArrayList<IUserDTO> DBUserList;  // Userlist til MySQL database
+	private ArrayList<IUserDTO> WEBUserList; // Userlist til lokal oplagring af brugerobjekter fra web-interfacen
 	
 	IUserDTO TempUser = new UserDTO();
 	
-	public IUserDTO getUser(int userId) throws DALException 
+	public IUserDTO getUser(int userId, int option) throws DALException 
 	{
-		
+		switch (option) {
+		case 1:
+			for (int i = 0; i < WEBUserList.size(); i++) {
+				if (WEBUserList.get(i).getUserId() == userId)
+					return WEBUserList.get(i);
+				else {
+					return null;
+				}
+
+			}
+
+		case 2:
 		try 
 		{
 			con = DriverManager.getConnection(this.url, this.user, this.password);
@@ -54,12 +67,16 @@ public class UserDAO implements IUserDAO
 		    return TempUser;
 		    
 		}
+		
 		catch(Exception e)
 		{
 			throw new DALException(DALException.dataDoesNotExist);
 		}		
+	
+		default: 
+		return null;
 	}
-
+	}
 	public List<IUserDTO> getUserList() throws DALException 
 	{
 		try 
@@ -69,7 +86,7 @@ public class UserDAO implements IUserDAO
 
 		    rs = st.executeQuery("SELECT UserID, Username, Ini, Roles, Cpr FROM personale");
 		    
-		    ArrayList<IUserDTO> UserList = new ArrayList<>();
+		    DBUserList = new ArrayList<IUserDTO>();
 		    
 		    while(rs.next())
 		    {
@@ -80,10 +97,10 @@ public class UserDAO implements IUserDAO
 		    	TempUser.addRole("Roles");
 		    	TempUser.setUserCpr(rs.getString("Cpr"));
 		    	
-		    	UserList.add(TempUser);
+		    	DBUserList.add(TempUser);
 		    }
 		    
-		    return UserList;
+		    return DBUserList;
 		    
 		}
 		catch(SQLException | ArrayIndexOutOfBoundsException ex)
@@ -96,8 +113,8 @@ public class UserDAO implements IUserDAO
 	{
 		try 
 		{	
-			ArrayList<IUserDTO> UserList = new ArrayList<>();
-			UserList.add(user);
+			WEBUserList = (ArrayList<IUserDTO>) getUserList();
+			WEBUserList.add(user);
 			
 			Class.forName(driver);
 			String Password = PasswordGenerator();

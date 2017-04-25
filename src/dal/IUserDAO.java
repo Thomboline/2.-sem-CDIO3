@@ -5,7 +5,7 @@ import dto.IUserDTO;
 
 public interface IUserDAO 
 {
-	public IUserDTO getUser(int userId) throws DALException;
+	public IUserDTO getUser(int userId, int option) throws DALException;
 	public List<IUserDTO> getUserList() throws DALException;
 	public IUserDTO createUser(IUserDTO user) throws DALException;
 	public void updateUser(IUserDTO user, int option) throws DALException;
