@@ -27,7 +27,7 @@ public class UserDAO implements IUserDAO
 	IUserDTO TempUser = new UserDTO();
 	
 	public IUserDTO getUser(int userId, int option) throws DALException 
-	{
+	{	
 		switch (option) {
 		case 1:
 			for (int i = 0; i < WEBUserList.size(); i++) {
@@ -74,9 +74,13 @@ public class UserDAO implements IUserDAO
 		}		
 	
 		default: 
-		return null;
+			return null;
+	
+		}
+
 	}
-	}
+	
+ 
 	public List<IUserDTO> getUserList() throws DALException 
 	{
 		try 

@@ -39,7 +39,7 @@ public class MySQL_Jersey
 	public IUserDTO findById(@PathParam("id") String id) throws NumberFormatException, DALException 
 	{
 		System.out.println("findById " + id);
-		return dao.getUser((Integer.parseInt(id)));
+		return dao.getUser((Integer.parseInt(id)), 1);
 	}
 
 	@POST
