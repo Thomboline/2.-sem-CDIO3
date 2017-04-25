@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Menu</title>
+	
+	<link rel="stylesheet" type="text/css" href="css/stylesheet.css"/>
+</head>
+
+<body>
+
+	<h1>Brugeradministration</h1>
+	
+	<div class="info">
+		<button id="homebtn" style="width:auto;">Home</button>
+		<button id="createuserbtn" onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Create User</button>
+		<button id="searchbtn" onclick="document.getElementById('id03').style.display='block'" style="width:auto;">Search</button>
+		<button id="loginbtn" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+	</div>
+	
+<div id="id01" class="modal">
+	<form class="modal-content animate" method="login-page">
+		<div class="imgcontainer">
+			<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+			<img src="pics/img_login.jpg" alt="Avatar" class="avatar">
+		</div>
+
+		<div class="container">
+			<label><b>Username</b></label>
+			<input type="text" placeholder="Enter Username" name="username" required>
+
+			<label><b>Password</b></label>
+			<input type="password" placeholder="Enter Password" name="password" required>
+			
+			<button type="submit">Login</button>
+			<input type="checkbox" checked="checked">Remember me
+		</div>
+
+		<div class="container" style="background-color:#f1f1f1">
+			<button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+			<span class="password">Forgot <a href="#">password?</a></span>
+		</div>
+	</form>
+</div>
+
+<div id="id03" class="modal">
+	<form class="modal-content animate" method="search-page">
+		<div class="imgcontainer">
+			<span onclick="document.getElementById('id03').style.display='none'" class="close" title="Close Modal">&times;</span>
+			<img src="pics/img_search.jpg" alt="Avatar" class="avatar">
+		</div>
+		
+		<div class="container">
+			<input type="text" placeholder="Search" name="search"><br>
+			<span id="centerbutton">
+				<button type="submit" onclick="" class="submitbtn">Search</button>
+			</span>
+		</div>
+		
+		<div class="container" style="background-color:#f1f1f1">
+			<button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
+		</div>
+	</form>
+</div>
+	
+<div id="id02" class="modal">
+	<form class="modal-content animate" method="create-user-page">
+		<div class="imgcontainer">
+			<span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+			<img src="pics/img_login.jpg" alt="Avatar" class="avatar">
+		</div>
+		
+		<div class="container">
+			<b>User-ID:</b><br>
+			<input type="text" placeholder="User ID" name="userid" required><br>
+			<b>Username:</b><br>
+			<input type="text" placeholder="Username" name="username" required><br>
+			<b>First name:</b><br>
+			<input type="text" placeholder="First name" name="firstname" required><br>
+			<b>Last name:</b><br>
+			<input type="text" placeholder="Last name" name="lastname" required><br>
+			<b>Cpr-nummer:</b><br>
+			<input type="text" placeholder="123456-7890" name="cprnummer" required><br>
+			<b>Choose role:</b><br>
+			<input type="radio" name="role" value="administrator">Administrator<br>
+			<input type="radio" name="role" value="operator">Operator<br>
+			<input type="radio" name="role" value="foreman">Foreman<br>
+			<input type="radio" name="role" value="pharmacist" checked>Pharmacist<br>
+			<br><span id="centerbutton">
+			<button type="submit" onclick="" class="submitbtn">Submit</button>
+			</span>
+		</div>
+		
+		<div class="container" style="background-color:#f1f1f1">
+			<button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
+		</div>
+	</form>
+</div>
+
+	<article>
+		<h3>Group 19</h3>
+		<p id="h2-description"> Info her. </p>
+	</article>
+
+	<footer>
+		<p id="copyright">Copyright © Group 19 DTU</p>
+	</footer>
+	
+<script> src = "json/jquery-1.7.1.min.js"</script>
+<script> src = "json/main.js"</script>
+
+</body>
+</html>
