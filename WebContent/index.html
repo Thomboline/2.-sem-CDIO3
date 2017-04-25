@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+ 
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -13,14 +13,14 @@
 	<h1>Brugeradministration</h1>
 	
 	<div class="info">
-		<button id="homebtn" style="width:auto;">Home</button>
-		<button id="createuserbtn" onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Create User</button>
-		<button id="searchbtn" onclick="document.getElementById('id03').style.display='block'" style="width:auto;">Search</button>
-		<button id="loginbtn" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+		<button id="home_menu_btn" style="width:auto;">Home</button>
+		<button id="createuser_menu_btn" onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Create User</button>
+		<button id="search_menu_btn" onclick="document.getElementById('id03').style.display='block'" style="width:auto;">Search</button>
+		<button id="login_menu_btn" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
 	</div>
 	
 <div id="id01" class="modal">
-	<form class="modal-content animate" method="login-page">
+	<form id="login" class="modal-content animate" method="login-page">
 		<div class="imgcontainer">
 			<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
 			<img src="pics/img_login.jpg" alt="Avatar" class="avatar">
@@ -45,7 +45,7 @@
 </div>
 
 <div id="id03" class="modal">
-	<form class="modal-content animate" method="search-page">
+	<form id="searchKey" class="modal-content animate" method="search-page">
 		<div class="imgcontainer">
 			<span onclick="document.getElementById('id03').style.display='none'" class="close" title="Close Modal">&times;</span>
 			<img src="pics/img_search.jpg" alt="Avatar" class="avatar">
@@ -54,7 +54,7 @@
 		<div class="container">
 			<input type="text" placeholder="Search" name="search"><br>
 			<span id="centerbutton">
-				<button type="submit" onclick="" class="submitbtn">Search</button>
+				<button type="submit" value="submit" class="submit_search">Search</button>
 			</span>
 		</div>
 		
@@ -65,7 +65,7 @@
 </div>
 	
 <div id="id02" class="modal">
-	<form class="modal-content animate" method="create-user-page">
+	<form id="create_user" class="modal-content animate" method="create-user-page">
 		<div class="imgcontainer">
 			<span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
 			<img src="pics/img_login.jpg" alt="Avatar" class="avatar">
@@ -88,7 +88,7 @@
 			<input type="radio" name="role" value="foreman">Foreman<br>
 			<input type="radio" name="role" value="pharmacist" checked>Pharmacist<br>
 			<br><span id="centerbutton">
-			<button type="submit" onclick="" class="submitbtn">Submit</button>
+			<button type="submit" value="submit" class="submitbtn">Submit</button>
 			</span>
 		</div>
 		
@@ -107,8 +107,8 @@
 		<p id="copyright">Copyright © Group 19 DTU</p>
 	</footer>
 	
-<script> src = "json/jquery-1.7.1.min.js"</script>
-<script> src = "json/main.js"</script>
+<script src = "json/jquery-1.7.1.min.js"></script>
+<script src = "json/main.js"></script>
 
 </body>
 </html>

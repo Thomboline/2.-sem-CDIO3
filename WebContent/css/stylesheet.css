@@ -40,21 +40,21 @@ button {
 	cursor: pointer;
 	border: none;
 	width: 100%
-}
+} 
 
 button:hover {
     opacity: 0.8;
 }
 
-#homebtn {
+#home_menu_btn {
 	float: left;
 }
 
-#createuserbtn {
+#createuser_menu_btn {
 	margin-left: 4px;
 }
 
-#loginbtn {
+#login_menu_btn {
 	float: right;
 	margin-right: 3%;
 }
