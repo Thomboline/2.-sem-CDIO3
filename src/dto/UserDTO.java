@@ -8,27 +8,33 @@ public class UserDTO implements Serializable, IUserDTO
 {
 
 	private static final long serialVersionUID = 4545864587995944260L;
-	private int	userId;                     
-	private String userName, CPR;                
+	private int	userID;                     
+	private String username, CPR, password;                
 	private String ini;                 
+
 	private List<String> roles;
 	
 	//TODO Add relevant fields
 	
-	
+	public UserDTO(int userID, String username, String password, String ini, String CPR, String role ) {
+	//	this.userId = userID;
+	//	this.userName = username;
+		
+		
+	}
 	public UserDTO() 
 	{
 		this.roles = new ArrayList<String>();
 	}
 
 	
-	public String getUserName() 
+	public String getUsername() 
 	{
-		return userName;
+		return username;
 	}
-	public void setUserName(String userName) 
+	public void setUsername(String username) 
 	{
-		this.userName = userName;
+		this.username = username;
 	}
 	public String getIni() 
 	{
@@ -61,7 +67,7 @@ public class UserDTO implements Serializable, IUserDTO
 	
 	public String toString() 
 	{
-		return "UserDTO [userId=" + userId + ", userName=" + userName + ", ini=" + ini + ", roles=" + roles + "]";
+		return "UserDTO [userID=" + userID + ", userName=" + username + ", ini =" + ini + ", roles= " + roles + "]";
 	}
 
 	public void setUserCpr(String Cpr) 
@@ -76,12 +82,18 @@ public class UserDTO implements Serializable, IUserDTO
 	
 	public int getUserId() 
 	{
-		return this.userId;
+		return this.userID;
 	}
 
-	public void setUserID(int iD) 
+	public void setUserID(int ID) 
 	{
-		this.userId = iD;
+		this.userID = ID;
 	}
-
+	
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
 }

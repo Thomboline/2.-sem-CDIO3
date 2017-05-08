@@ -26,6 +26,12 @@ public class UserDAO implements IUserDAO
 	
 	IUserDTO TempUser = new UserDTO();
 	
+	public UserDAO() {
+		WEBUserList = new ArrayList<IUserDTO>();
+		WEBUserList.add(new UserDTO());
+		
+	}
+	
 	public IUserDTO getUser(int userId, int option) throws DALException 
 	{	
 		switch (option) {
@@ -120,7 +126,7 @@ public class UserDAO implements IUserDAO
 			WEBUserList = (ArrayList<IUserDTO>) getUserList();
 			WEBUserList.add(user);
 			
-			Class.forName(driver);
+		/*	Class.forName(driver);
 			String Password = PasswordGenerator();
 			
 			con = DriverManager.getConnection(this.url, this.user, this.password);
@@ -148,19 +154,28 @@ public class UserDAO implements IUserDAO
 		    pst.execute();
 		    
 		    con.close();
+		    */
 		}
-		catch (SQLException | ClassNotFoundException ex) 
+		catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		return user;
+		}
+		
+	/* catch (SQLException | ClassNotFoundException ex) 
 		{	
 			if (((SQLException)ex).getErrorCode() == DALException.duplicateErrorCode) {
 				System.out.println(DALException.duplicateData);
 			}
+			 catch (Exception ex) {
+				i
 			else {
 				ex.printStackTrace();
 			throw new DALException(DALException.wrongData);
 			}
-		}
-		return user;
-	}
+		}*/
+		
+	
 		
 //--------EKSTRA KODE TIL DATABASE BRUGEROPRETTELSE---------------
 //--------OPRETTER BRUGER, GIVER PRIVILEGIER----------------------

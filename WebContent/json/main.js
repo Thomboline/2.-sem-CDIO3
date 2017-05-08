@@ -1,7 +1,8 @@
-var rootURL = "http://localhost:8080/2.-sem-CDIO3"; 
+//var rootURL = "http://localhost:8080/rest"; 
 
 //findAll();
- 
+
+
 $(document).ready(function() {
 	
 	$('#create_user').submit(function(event) {
@@ -86,26 +87,43 @@ function createUser() {
 	console.log('createUser');
 	$.ajax({
 		type: 'POST',
-		contentType: 'application/json',
-		url: rootURL, 
+		//contentType: 'application/json',
+		url: "rest/service",
 		dataType: "json",
-		data: formToJSON(), 
-		success: function(data, textStatus, jqXHR) {
+		data: formToJSON(),
+		success: function(data) {
+			console.log(formToJSON());
+			
 			alert('User created successfully');
 		},
 		error: function(jqXHR, textStatus, errorThrown){
-			alert('Create user failed: ' + textStatus);
+			alert('Create user failed: ' + textStatus + errorThrown + jqXHR);
 		}
 	});
 }
 
 function formToJSON() {
-	var userId = $('#userid').val();
-	console.log("Pre stringify")
+	// e.g. lav et javascript objekt, der indeholder alt information
+	// og derefter kør stringify
+	
+//	var userID = $('#id').val();
+//	"id": userID == "" ? null : userID, 
+			
 	return JSON.stringify({
-//		"id": userId == "" ? null : userId,
-		"id" : $('#userid').val(),
-		"username" : $('#username').val(),
-		"firstname" : $('#firstname')
+		"userID":$('#id').val(),
+		"username":$('#user').val(), 
+		"password":$('#pass').val(),
+		"ini":$('#ini').val(),
+		"CPR":$('#cpr').val(),
+		"role":$('#centerbutton').val()
 	});
+	
+//	var username = create_user.elements["username"].value;
+//	var password = create_user.elements["password"].value;
+//	var initials = create_user.elements["initials"].value;
+//	var cpr = create_user.elements["cpr"].value;
+//	var role = create_user.elements["role"].vaue;
+//	var user = { "username": username, "password": password, "initials": initials, "cpr": cpr, "role": role};
+//	return JJSON.stringify(user);
+	
 }
