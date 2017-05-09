@@ -86,7 +86,7 @@ function login() {
 function createUser() {
 	console.log('createUser');
 	$.ajax({
-		type: 'POST',
+		method: 'POST',
 		//contentType: 'application/json',
 		url: "rest/service",
 		dataType: "json",

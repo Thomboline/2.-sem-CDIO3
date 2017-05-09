@@ -16,13 +16,18 @@ import dal.IUserDAO;
 import dal.IUserDAO.DALException;
 import dal.UserDAO;
 import dto.IUserDTO;
-@Path("/service")
+@Path("service")
 public class MySQL_Jersey 
 {
 	
 //	private ObjectMapper mapper = new ObjectMapper();
 //	private IUserDTO user;
 	
+	@POST
+	@Produces({ MediaType.APPLICATION_JSON})
+	public String showMessage() {
+		return "It works!";
+	}
 	
 	IUserDAO dao = new UserDAO();
 
@@ -41,15 +46,15 @@ public class MySQL_Jersey
 		return dao.getUser((Integer.parseInt(id)), 1);
 	}
 
-	@POST
-	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
-	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public IUserDTO create(IUserDTO user) throws DALException 
-	{
-		System.out.println("creating user");
-		System.out.println("lort");
-		return dao.createUser(user);
-	}
+//	@POST
+//	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+//	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+//	public IUserDTO create(IUserDTO user) throws DALException 
+//	{
+//		System.out.println("creating user");
+//		System.out.println("lort");
+//		return dao.createUser(user);
+//	}
 
 	@PUT @Path("{id}")
 	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
